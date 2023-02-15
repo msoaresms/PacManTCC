@@ -19,6 +19,15 @@ public class GhostChase : GhostBehavior
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+
+        if (LayerMask.LayerToName(other.gameObject.layer) == "Speed" && !this.ghost.frightened.enabled)
+        {
+            this.ghost.movement.speedMultiplier = 0.5f;
+        } else 
+        {
+            this.ghost.movement.speedMultiplier = 1.0f;
+        }
+
         Node node = other.GetComponent<Node>();
 
         if (node != null && this.enabled && !this.ghost.frightened.enabled)
