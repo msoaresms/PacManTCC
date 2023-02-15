@@ -8,12 +8,18 @@ public class Node : MonoBehaviour
 
     public LayerMask obstacleLayer;
 
+    public bool allowUp = true;
+
     // Start is called before the first frame update
     void Start()
     {
         this.availableDirections = new List<Vector2>();
 
-        CheckAvailableDirection(Vector2.up);
+        if (this.allowUp)
+        {
+            CheckAvailableDirection(Vector2.up);
+        }
+
         CheckAvailableDirection(Vector2.down);
         CheckAvailableDirection(Vector2.left);
         CheckAvailableDirection(Vector2.right);
