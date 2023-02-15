@@ -14,6 +14,8 @@ public class GhostFrightened : GhostBehavior
 
     public bool eaten { get; private set; }
 
+    public Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -109,7 +111,7 @@ public class GhostFrightened : GhostBehavior
                         availableDirection.y,
                         0.0f);
                 float distance =
-                    (this.ghost.target.position - newPosition).sqrMagnitude;
+                    (this.target.position - newPosition).sqrMagnitude;
 
                 if (distance > maxDistance)
                 {

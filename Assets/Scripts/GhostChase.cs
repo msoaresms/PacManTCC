@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class GhostChase : GhostBehavior
 {
+
+    public Transform target;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,7 +36,7 @@ public class GhostChase : GhostBehavior
                             availableDirection.y,
                             0.0f);
                     float distance =
-                        (this.ghost.target.position - newPosition).sqrMagnitude;
+                        (this.target.position - newPosition).sqrMagnitude;
 
                     if (distance < minDistance)
                     {

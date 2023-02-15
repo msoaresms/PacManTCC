@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class GhostScatter : GhostBehavior
 {
+
+    public Transform target;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,23 +22,30 @@ public class GhostScatter : GhostBehavior
 
         if (node != null && this.enabled && !this.ghost.frightened.enabled)
         {
-            int index = Random.Range(0, node.availableDirections.Count);
+            Vector2 direction = Vector2.zero;
+            float minDistance = float.MaxValue;
 
-            if (
-                node.availableDirections.Count > 1 &&
-                node.availableDirections[index] ==
-                -this.ghost.movement.direction
-            )
+            foreach (Vector2 availableDirection in node.availableDirections)
             {
-                index++;
-
-                if (index >= node.availableDirections.Count)
+                if (availableDirection != -this.ghost.movement.direction)
                 {
-                    index = 0;
+                    Vector3 newPosition =
+                        this.transform.position +
+                        new Vector3(availableDirection.x,
+                            availableDirection.y,
+                            0.0f);
+                    float distance =
+                        (this.target.position - newPosition).sqrMagnitude;
+
+                    if (distance < minDistance)
+                    {
+                        direction = availableDirection;
+                        minDistance = distance;
+                    }
                 }
             }
 
-            this.ghost.movement.SetDirection(node.availableDirections[index]);
+            this.ghost.movement.SetDirection(direction);
         }
     }
 
