@@ -30,6 +30,29 @@ public class GameManager : MonoBehaviour
     {
     }
 
+    public void FixedUpdate()
+    {
+
+        int numPellets = 0;
+        foreach (Transform pellet in this.pellets)
+        {
+            if (pellet.gameObject.activeSelf)
+            {
+                numPellets++;
+            }
+        }
+
+        if (numPellets <= 20 && numPellets > 10)
+        {
+            this.ghosts[0].movement.speed = 8.0f;
+        }
+
+        if (numPellets <= 10)
+        {
+            this.ghosts[0].movement.speed = 9.0f;
+        }
+    }
+
     private void ResetState()
     {
         this.ResetGhostMultiplier();
