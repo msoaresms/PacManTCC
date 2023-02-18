@@ -17,6 +17,9 @@ public class PacMan : MonoBehaviour
     public Transform inkyAuxTarget;
     public Transform blinky;
     public Transform inkyTarget;
+    public Transform clyde;
+    public Transform clydeTarget;
+    public Transform clydeScatterTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -72,6 +75,15 @@ public class PacMan : MonoBehaviour
         }
 
         this.inkyTarget.transform.position = Vector3.LerpUnclamped(this.blinky.transform.position, this.inkyAuxTarget.transform.position, 2.0f);
+
+        if (Vector3.Distance(this.transform.position, this.clyde.transform.position) >= 8.0f)
+        {
+            this.clydeTarget.position = this.transform.position;
+        } else
+        {
+
+            this.clydeTarget.position = this.clydeScatterTarget.transform.position;
+        }
 
     }
 

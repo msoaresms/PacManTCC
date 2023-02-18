@@ -15,6 +15,7 @@ public class GhostChase : GhostBehavior
     // Update is called once per frame
     void Update()
     {
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)
@@ -23,7 +24,8 @@ public class GhostChase : GhostBehavior
         if (LayerMask.LayerToName(other.gameObject.layer) == "Speed" && !this.ghost.frightened.enabled)
         {
             this.ghost.movement.speedMultiplier = 0.5f;
-        } else 
+        }
+        else
         {
             this.ghost.movement.speedMultiplier = 1.0f;
         }
@@ -62,5 +64,15 @@ public class GhostChase : GhostBehavior
     private void OnDisable()
     {
         this.ghost.scatter.Enable();
+    }
+
+    private void OnDrawGizmosSelected()
+    {
+        if (target != null)
+        {
+            // Draws a blue line from this transform to the target
+            Gizmos.color = Color.blue;
+            Gizmos.DrawLine(transform.position, target.position);
+        }
     }
 }

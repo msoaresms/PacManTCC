@@ -3551,6 +3551,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1561763735512750472, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 1739698230020348671, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: m_RootOrder
       value: 4
@@ -3601,7 +3605,7 @@ PrefabInstance:
       objectReference: {fileID: 323551392}
     - target: {fileID: 3088908583584801955, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: duration
-      value: 700
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4202579005619364776, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: m_Name
@@ -3609,7 +3613,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4202579005619364776, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5842216882226878025, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
+      propertyPath: duration
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5842216882226878025, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: insideTransform
@@ -3622,7 +3630,11 @@ PrefabInstance:
     - target: {fileID: 6750146966022666494, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: target
       value: 
-      objectReference: {fileID: 1746975583}
+      objectReference: {fileID: 1525480459}
+    - target: {fileID: 6750146966022666494, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
+      propertyPath: duration
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 7274803072102620826, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: target
       value: 
@@ -9659,6 +9671,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1269878640986267820, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2024185926849766363, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
       propertyPath: m_RootOrder
       value: 6
@@ -9717,7 +9733,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4495000778371521164, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6133979106865901421, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
       propertyPath: duration
@@ -10105,7 +10121,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 917656994828378487, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2031302135134234236, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
       propertyPath: target
@@ -10113,6 +10129,10 @@ PrefabInstance:
       objectReference: {fileID: 2014423400}
     - target: {fileID: 2031302135134234236, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
       propertyPath: duration
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 2540835779240926039, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
+      propertyPath: speed
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 3371512942690048032, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
@@ -10185,6 +10205,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c05730dc460ebd74997945a2e0ff37ea, type: 3}
+--- !u!4 &1427928718 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1739698230020348671, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
+  m_PrefabInstance: {fileID: 432867408}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1467804104
 GameObject:
   m_ObjectHideFlags: 0
@@ -10215,6 +10240,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 1746975583}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1525480458
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1525480459}
+  m_Layer: 6
+  m_Name: ClydeTarget
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1525480459
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1525480458}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1746975583}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1647730618
 GameObject:
@@ -10274,6 +10330,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1236933260392540169, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: speed
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 2063389400640662398, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
       propertyPath: m_RootOrder
       value: 5
@@ -10531,6 +10591,7 @@ Transform:
   - {fileID: 1050760235}
   - {fileID: 1737985222}
   - {fileID: 1467804105}
+  - {fileID: 1525480459}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10551,6 +10612,9 @@ MonoBehaviour:
   inkyAuxTarget: {fileID: 1737985222}
   blinky: {fileID: 1842224124}
   inkyTarget: {fileID: 1467804105}
+  clyde: {fileID: 1427928718}
+  clydeTarget: {fileID: 1525480459}
+  clydeScatterTarget: {fileID: 323551392}
 --- !u!114 &1746975585
 MonoBehaviour:
   m_ObjectHideFlags: 0
