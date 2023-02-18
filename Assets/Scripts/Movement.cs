@@ -40,6 +40,7 @@ public class Movement : MonoBehaviour
         {
             SetDirection(this.nextDirection);
         }
+        
     }
 
     public void ResetState()

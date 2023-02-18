@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (Movement))]
+[RequireComponent(typeof(Movement))]
 public class PacMan : MonoBehaviour
 {
     public AnimatedSprite deathSequence;
@@ -13,6 +13,8 @@ public class PacMan : MonoBehaviour
 
     public new Collider2D collider { get; private set; }
 
+    public Transform pinkyTarget;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -21,6 +23,8 @@ public class PacMan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 pacman = this.transform.position;
+
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             this.movement.SetDirection(Vector2.up);
@@ -42,6 +46,23 @@ public class PacMan : MonoBehaviour
             Mathf.Atan2(this.movement.direction.y, this.movement.direction.x);
         this.transform.rotation =
             Quaternion.AngleAxis(angle * Mathf.Rad2Deg, Vector3.forward);
+
+        if (this.movement.direction == Vector2.up)
+        {
+            this.pinkyTarget.transform.position = new Vector3(pacman.x - 4.0f, pacman.y + 4.0f, 0.0f);
+        }
+        else if (this.movement.direction == Vector2.down)
+        {
+            this.pinkyTarget.transform.position = new Vector3(pacman.x, pacman.y - 4.0f, 0.0f);
+        }
+        else if (this.movement.direction == Vector2.left)
+        {
+            this.pinkyTarget.transform.position = new Vector3(pacman.x - 4.0f, pacman.y, 0.0f);
+        }
+        else if (this.movement.direction == Vector2.right)
+        {
+            this.pinkyTarget.transform.position = new Vector3(pacman.x + 4.0f, pacman.y, 0.0f);
+        }
     }
 
     private void Awake()
