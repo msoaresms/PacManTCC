@@ -14,6 +14,9 @@ public class PacMan : MonoBehaviour
     public new Collider2D collider { get; private set; }
 
     public Transform pinkyTarget;
+    public Transform inkyAuxTarget;
+    public Transform blinky;
+    public Transform inkyTarget;
 
     // Start is called before the first frame update
     void Start()
@@ -50,19 +53,26 @@ public class PacMan : MonoBehaviour
         if (this.movement.direction == Vector2.up)
         {
             this.pinkyTarget.transform.position = new Vector3(pacman.x - 4.0f, pacman.y + 4.0f, 0.0f);
+            this.inkyAuxTarget.transform.position = new Vector3(pacman.x - 2.0f, pacman.y + 2.0f, 0.0f);
         }
         else if (this.movement.direction == Vector2.down)
         {
             this.pinkyTarget.transform.position = new Vector3(pacman.x, pacman.y - 4.0f, 0.0f);
+            this.inkyAuxTarget.transform.position = new Vector3(pacman.x, pacman.y - 2.0f, 0.0f);
         }
         else if (this.movement.direction == Vector2.left)
         {
             this.pinkyTarget.transform.position = new Vector3(pacman.x - 4.0f, pacman.y, 0.0f);
+            this.inkyAuxTarget.transform.position = new Vector3(pacman.x - 2.0f, pacman.y, 0.0f);
         }
         else if (this.movement.direction == Vector2.right)
         {
             this.pinkyTarget.transform.position = new Vector3(pacman.x + 4.0f, pacman.y, 0.0f);
+            this.inkyAuxTarget.transform.position = new Vector3(pacman.x + 2.0f, pacman.y, 0.0f);
         }
+
+        this.inkyTarget.transform.position = Vector3.LerpUnclamped(this.blinky.transform.position, this.inkyAuxTarget.transform.position, 2.0f);
+
     }
 
     private void Awake()
