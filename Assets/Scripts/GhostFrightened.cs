@@ -14,18 +14,6 @@ public class GhostFrightened : GhostBehavior
 
     public bool eaten { get; private set; }
 
-    public Transform target;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public override void Enable(float duration)
     {
         base.Enable(duration);
@@ -105,19 +93,23 @@ public class GhostFrightened : GhostBehavior
 
             foreach (Vector2 availableDirection in node.availableDirections)
             {
-                Vector3 newPosition =
-                    this.transform.position +
-                    new Vector3(availableDirection.x,
-                        availableDirection.y,
-                        0.0f);
-                float distance =
-                    (this.target.position - newPosition).sqrMagnitude;
-
-                if (distance > maxDistance)
+                if (availableDirection != -this.ghost.movement.direction)
                 {
-                    direction = availableDirection;
-                    maxDistance = distance;
+                    Vector3 newPosition = 
+                        this.transform.position + 
+                        new Vector3(availableDirection.x, 
+                        availableDirection.y, 
+                        0.0f);
+                    float distance =
+                        (this.target.position - newPosition).sqrMagnitude;
+
+                    if (distance > maxDistance)
+                    {
+                        direction = availableDirection;
+                        maxDistance = distance;
+                    }
                 }
+
             }
 
             this.ghost.movement.SetDirection(direction);

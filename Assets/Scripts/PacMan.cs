@@ -79,7 +79,8 @@ public class PacMan : MonoBehaviour
         if (Vector3.Distance(this.transform.position, this.clyde.transform.position) >= 8.0f)
         {
             this.clydeTarget.position = this.transform.position;
-        } else
+        }
+        else
         {
 
             this.clydeTarget.position = this.clydeScatterTarget.transform.position;
@@ -115,5 +116,13 @@ public class PacMan : MonoBehaviour
         // this.deathSequence.enabled = true;
         // this.deathSequence.spriteRenderer.enabled = true;
         // this.deathSequence.Restart();
+    }
+
+    private void OnDrawGizmos()
+    {
+
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(this.transform.position, 8);
+
     }
 }

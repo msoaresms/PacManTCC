@@ -12,9 +12,6 @@ public class GameManager : MonoBehaviour
 
     public Transform pellets;
 
-    // public Text scoreText;
-    // public Text livesText;
-    // public Text gameOverText;
     public int score { get; private set; }
 
     public int lives { get; private set; }
@@ -25,14 +22,8 @@ public class GameManager : MonoBehaviour
         this.NewGame();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     public void FixedUpdate()
     {
-
         int numPellets = 0;
         foreach (Transform pellet in this.pellets)
         {
@@ -95,13 +86,11 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         this.score = score;
-        // this.scoreText.text = score.ToString().PadLeft(2, '0');
     }
 
     private void SetLives(int lives)
     {
         this.lives = lives;
-        // this.livesText.text = "x" + this.lives.ToString();
     }
 
     private void NewGame()
@@ -113,7 +102,6 @@ public class GameManager : MonoBehaviour
 
     private void NewRound()
     {
-        // this.gameOverText.enabled = false;
         foreach (Transform pellet in this.pellets)
         {
             pellet.gameObject.SetActive(true);
@@ -122,7 +110,6 @@ public class GameManager : MonoBehaviour
 
     private void GameOver()
     {
-        // this.gameOverText.enabled = true;
         for (int i = 0; i < this.ghosts.Length; i++)
         {
             this.ghosts[i].gameObject.SetActive(false);
@@ -164,7 +151,6 @@ public class GameManager : MonoBehaviour
                 return true;
             }
         }
-
         return false;
     }
 }

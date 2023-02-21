@@ -19,6 +19,7 @@ public class Ghost : MonoBehaviour
     public GhostBehavior initialBehavior;
 
 
+
     // Start is called before the first frame update
     void Start()
     {

@@ -2,7 +2,6 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof (SpriteRenderer))]
 public class AnimatedSprite : MonoBehaviour
 {
     public SpriteRenderer spriteRenderer { get; private set; }
@@ -21,11 +20,6 @@ public class AnimatedSprite : MonoBehaviour
         InvokeRepeating(nameof(this.Advance),
         this.animationTime,
         this.animationTime);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
     }
 
     private void Awake()
