@@ -37,14 +37,16 @@ public abstract class GhostBehavior : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (LayerMask.LayerToName(other.gameObject.layer) == "Speed" && !this.ghost.frightened.enabled)
+        if (!this.ghost.frightened.enabled)
         {
-            this.ghost.movement.speedMultiplier = 0.5f;
-        }
-        else
-        {
-            this.ghost.movement.speedMultiplier = 1.0f;
+            if (LayerMask.LayerToName(other.gameObject.layer) == "Speed")
+            {
+                this.ghost.movement.speedMultiplier = 0.5f;
+            }
+            else
+            {
+                this.ghost.movement.speedMultiplier = 1.0f;
+            }
         }
 
         Node node = other.GetComponent<Node>();
