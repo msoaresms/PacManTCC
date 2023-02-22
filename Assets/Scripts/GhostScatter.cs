@@ -11,7 +11,7 @@ public class GhostScatter : GhostBehavior
 
     private void OnDrawGizmos()
     {
-        if (this.target != null)
+        if (this.enabled && this.target != null)
         {
             Gizmos.color = Color.blue;
             Gizmos.DrawLine(transform.position, target.position);
