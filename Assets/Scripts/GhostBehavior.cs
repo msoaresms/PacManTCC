@@ -25,6 +25,7 @@ public abstract class GhostBehavior : MonoBehaviour
     {
         this.enabled = true;
         CancelInvoke();
+        this.ghost.movement.SetDirection(-this.ghost.movement.direction);
         Invoke(nameof(Disable), this.duration);
     }
 
