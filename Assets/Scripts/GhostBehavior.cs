@@ -26,7 +26,25 @@ public abstract class GhostBehavior : MonoBehaviour
         this.enabled = true;
         CancelInvoke();
         this.ghost.movement.SetDirection(-this.ghost.movement.direction);
-        Invoke(nameof(Disable), this.duration);
+        StartCoroutine(DisableState());
+    }
+
+    private IEnumerator DisableState()
+    {
+        float duration = this.duration;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            if (!this.ghost.frightened.enabled)
+            {
+                elapsed += Time.deltaTime;
+            }
+            yield return null;
+        }
+
+        this.ghost.movement.SetDirection(-this.ghost.movement.direction);
+        this.Disable();
     }
 
     public virtual void Disable()

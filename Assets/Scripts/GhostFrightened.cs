@@ -48,6 +48,21 @@ public class GhostFrightened : GhostBehavior
     {
         this.ghost.movement.speedMultiplier = 0.5f;
         this.eaten = false;
+        StartCoroutine(DisableState());
+    }
+
+    private IEnumerator DisableState()
+    {
+        float duration = this.duration;
+        float elapsed = 0.0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            yield return null;
+        }
+
+        this.Disable();
     }
 
     private void OnDisable()
