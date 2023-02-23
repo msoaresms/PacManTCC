@@ -14,15 +14,15 @@ public class GhostFrightened : GhostBehavior
 
     public bool eaten { get; private set; }
 
-    public override void Enable(float duration)
+    public override void Enable()
     {
-        base.Enable(duration);
+        base.Enable();
         this.body.enabled = false;
         this.eyes.enabled = false;
         this.blue.enabled = true;
         this.white.enabled = false;
 
-        Invoke(nameof(Flash), duration / 2.0f);
+        Invoke(nameof(Flash), this.duration / 2.0f);
     }
 
     public override void Disable()
@@ -78,7 +78,7 @@ public class GhostFrightened : GhostBehavior
         position.z = this.ghost.transform.position.z;
         this.ghost.transform.position = position;
 
-        this.ghost.home.Enable(this.duration);
+        this.ghost.home.Enable();
 
         this.body.enabled = false;
         this.eyes.enabled = true;

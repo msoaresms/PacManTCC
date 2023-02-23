@@ -16,6 +16,10 @@ public class GameManager : MonoBehaviour
 
     public int lives { get; private set; }
 
+    public float intervalPellet = 0.0f;
+
+    public int pelletsEaten = 0;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,21 +28,14 @@ public class GameManager : MonoBehaviour
 
     public void FixedUpdate()
     {
-        int numPellets = 0;
-        foreach (Transform pellet in this.pellets)
-        {
-            if (pellet.gameObject.activeSelf)
-            {
-                numPellets++;
-            }
-        }
+        this.intervalPellet += Time.deltaTime;
 
-        if (numPellets <= 20 && numPellets > 10)
+        if (this.pelletsEaten <= 20 && this.pelletsEaten > 10)
         {
             this.ghosts[0].movement.speed = 8.0f;
         }
 
-        if (numPellets <= 10)
+        if (this.pelletsEaten <= 10)
         {
             this.ghosts[0].movement.speed = 9.0f;
         }
@@ -120,6 +117,8 @@ public class GameManager : MonoBehaviour
 
     public void PelletEaten(Pellet pellet)
     {
+        this.intervalPellet = 0.0f;
+        this.pelletsEaten++;
         pellet.gameObject.SetActive(false);
         this.SetScore(this.score + pellet.points);
 
@@ -134,7 +133,7 @@ public class GameManager : MonoBehaviour
     {
         for (int i = 0; i < this.ghosts.Length; i++)
         {
-            this.ghosts[i].frightened.Enable(pellet.duration);
+            this.ghosts[i].frightened.Enable();
         }
 
         this.PelletEaten(pellet);

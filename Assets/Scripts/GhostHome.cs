@@ -8,6 +8,43 @@ public class GhostHome : GhostBehavior
 
     public Transform outsideTransform;
 
+    public GameManager gameManager;
+
+    public void Start()
+    {
+        StartCoroutine(LeaveHouse());
+    }
+
+    private IEnumerator LeaveHouse()
+    {
+        Ghost inky = this.gameManager.ghosts[2];
+        string ghostName = GetComponent<Ghost>().name;
+        bool leaved = false;
+
+        while (!leaved)
+        {
+            if (this.enabled && ghostName == "Pinky")
+            {
+                yield return new WaitForSeconds(0.75f);
+                this.enabled = false;
+                leaved = true;
+            }
+            else if (this.enabled && ghostName == "Inky" && (this.gameManager.intervalPellet > 4.0f || this.gameManager.pelletsEaten > 30))
+            {
+                this.enabled = false;
+                leaved = true;
+                this.gameManager.intervalPellet = 0.0f;
+            }
+            else if (this.enabled && ghostName == "Clyde" && (this.gameManager.intervalPellet > 4.0f || this.gameManager.pelletsEaten > 90) && !inky.home.enabled)
+            {
+                this.enabled = false;
+                leaved = true;
+                this.gameManager.intervalPellet = 0.0f;
+            }
+            yield return null;
+        }
+    }
+
     private void OnDisable()
     {
         if (this.gameObject.activeSelf)
@@ -16,7 +53,7 @@ public class GhostHome : GhostBehavior
         }
     }
 
-    private IEnumerator ExitTransition()
+    public IEnumerator ExitTransition()
     {
         this.ghost.movement.SetDirection(Vector2.up, true);
         this.ghost.movement.rigidbody.isKinematic = true;

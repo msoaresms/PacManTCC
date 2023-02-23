@@ -26,11 +26,6 @@ public class Ghost : MonoBehaviour
         this.ResetState();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-    }
-
     private void Awake()
     {
         this.movement = GetComponent<Movement>();

@@ -3661,6 +3661,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 5842216882226878025, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1647730619}
+    - target: {fileID: 5842216882226878025, guid: b375667dddbe6fd4db1a65edf871e109, type: 3}
       propertyPath: insideTransform
       value: 
       objectReference: {fileID: 653109765}
@@ -9825,6 +9829,10 @@ PrefabInstance:
       value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 6133979106865901421, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1647730619}
+    - target: {fileID: 6133979106865901421, guid: 13ccde19d5c4c9d458fa82195c5cc993, type: 3}
       propertyPath: insideTransform
       value: 
       objectReference: {fileID: 653109765}
@@ -10431,11 +10439,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ghosts:
   - {fileID: 1007050578}
+  - {fileID: 2030049842}
   - {fileID: 927439292}
   - {fileID: 792502319}
-  - {fileID: 2030049842}
   pacman: {fileID: 1746975584}
   pellets: {fileID: 280610429}
+  intervalPellet: 0
+  pelletsEaten: 0
 --- !u!4 &1647730620
 Transform:
   m_ObjectHideFlags: 0
@@ -10461,6 +10471,26 @@ PrefabInstance:
     - target: {fileID: 1236933260392540169, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
       propertyPath: speed
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690248079692094464, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: m_Mass
+      value: 0.7853982
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690248079692094464, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: m_BodyType
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690248079692094464, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: m_Simulated
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690248079692094464, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: m_UseAutoMass
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1690248079692094464, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2063389400640662398, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
       propertyPath: m_RootOrder
@@ -10526,6 +10556,10 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 1621619448}
+    - target: {fileID: 6167044884511287240, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
+      propertyPath: gameManager
+      value: 
+      objectReference: {fileID: 1647730619}
     - target: {fileID: 6167044884511287240, guid: 737f6e4808770f24fb954663333e2e8f, type: 3}
       propertyPath: insideTransform
       value: 

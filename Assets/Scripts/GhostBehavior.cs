@@ -16,17 +16,16 @@ public abstract class GhostBehavior : MonoBehaviour
         this.enabled = false;
     }
 
-    public void Enable()
-    {
-        Enable(this.duration);
-    }
-
-    public virtual void Enable(float duration)
+    public virtual void Enable()
     {
         this.enabled = true;
         CancelInvoke();
         this.ghost.movement.SetDirection(-this.ghost.movement.direction);
-        StartCoroutine(DisableState());
+
+        if (!this.ghost.home.enabled)
+        {
+            StartCoroutine(DisableState());
+        }
     }
 
     private IEnumerator DisableState()
