@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -19,6 +20,8 @@ public class GameManager : MonoBehaviour
     public float intervalPellet = 0.0f;
 
     public int pelletsEaten = 0;
+
+    public TMP_Text scoreText;
 
     // Start is called before the first frame update
     void Start()
@@ -83,6 +86,7 @@ public class GameManager : MonoBehaviour
     private void SetScore(int score)
     {
         this.score = score;
+        this.scoreText.text = this.score.ToString();
     }
 
     private void SetLives(int lives)
