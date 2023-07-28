@@ -9,6 +9,8 @@ public class GameManager : MonoBehaviour
 
     public Ghost[] ghosts;
 
+    public GameObject[] livesUI;
+
     public PacMan pacman;
 
     public Transform pellets;
@@ -72,6 +74,7 @@ public class GameManager : MonoBehaviour
     {
         this.pacman.DeathSequence();
         this.SetLives(this.lives - 1);
+        this.updateLivesUI();
 
         if (this.lives > 0)
         {
@@ -80,6 +83,20 @@ public class GameManager : MonoBehaviour
         else
         {
             this.GameOver();
+        }
+    }
+
+    public void updateLivesUI() 
+    {
+        if (this.lives == 2)
+        {
+            this.livesUI[0].SetActive(false);
+        } else if (this.lives == 1)
+        {
+            this.livesUI[1].SetActive(false);
+        } else if (this.lives == 0) 
+        {
+            this.livesUI[2].SetActive(false);
         }
     }
 
