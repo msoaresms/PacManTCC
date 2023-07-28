@@ -25,9 +25,14 @@ public class GameManager : MonoBehaviour
 
     public TMP_Text scoreText;
 
+    private AudioSource audioSource;
+
+    public AudioClip[] sounds;
+
     // Start is called before the first frame update
     void Start()
     {
+        this.audioSource = GetComponent<AudioSource>();
         this.NewGame();
     }
 
@@ -82,6 +87,8 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            this.audioSource.Stop();
+            this.audioSource.PlayOneShot(this.sounds[1]);
             this.GameOver();
         }
     }
@@ -138,6 +145,7 @@ public class GameManager : MonoBehaviour
 
     public void PelletEaten(Pellet pellet)
     {
+        this.playChompSound();
         this.intervalPellet = 0.0f;
         this.pelletsEaten++;
         pellet.gameObject.SetActive(false);
@@ -150,8 +158,18 @@ public class GameManager : MonoBehaviour
         }
     }
 
+    private void playChompSound()
+    {
+        if (!this.audioSource.isPlaying)
+        {
+            this.audioSource.PlayOneShot(this.sounds[0]);
+        }
+    }
+
     public void PowerPelletEaten(PowerPellet pellet)
     {
+        this.playChompSound();
+
         for (int i = 0; i < this.ghosts.Length; i++)
         {
             this.ghosts[i].frightened.Enable();
